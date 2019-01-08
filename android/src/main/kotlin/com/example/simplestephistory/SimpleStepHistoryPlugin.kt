@@ -18,7 +18,10 @@ class SimpleStepHistoryPlugin: MethodCallHandler {
   override fun onMethodCall(call: MethodCall, result: Result) {
     if (call.method == "getPlatformVersion") {
       result.success("Android ${android.os.Build.VERSION.RELEASE}")
-    } else {
+    } else if (call.method == "getSomething") {
+      result.success("something")
+    }
+    else {
       result.notImplemented()
     }
   }

@@ -16,10 +16,16 @@ class SimpleStepHistoryPlugin: MethodCallHandler {
   }
 
   override fun onMethodCall(call: MethodCall, result: Result) {
-    if (call.method == "getPlatformVersion") {
-      result.success("Android ${android.os.Build.VERSION.RELEASE}")
-    } else if (call.method == "getSomething") {
-      result.success("something")
+    if (call.method == "getTodaySteps") {
+      result.success(0)
+    } else if (call.method == "fetchSteps") {
+      result.success(0)
+    }
+    else if (call.method == "checkStepsAvailability") {
+      result.success(false)
+    }
+    else if (call.method == "requestStepsAuthorization") {
+      result.success(false)
     }
     else {
       result.notImplemented()

@@ -39,7 +39,7 @@ class _MyAppState extends State<MyApp> {
       final date = DateTime.now().subtract(Duration(days: i));
       final str = fmt.format(date);
       final steps = await SimpleStepHistory.getStepsForDay(dateStr: str);
-      data.add('DATE: $str - COUNT: $steps');
+      data.add('DATE: $str - COUNT: ${steps < 0 ? 'N/A' : '$steps'}');
     }
     setState(() {});
   }

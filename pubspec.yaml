@@ -1,7 +1,7 @@
 name: simple_step_history
 description: Flutter plugin to query steps from mobile phone.
 version: 0.0.1
-author: Daniel Tjuatja
+author: Daniel Tjuatja <daniel.tjuatja@gmail.com>
 homepage: https://github.com/nielstj
 
 environment:

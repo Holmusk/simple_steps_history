@@ -11,11 +11,6 @@ class SimpleStepHistory {
     return (granted >= 0);    
   }
 
-  static Future<int> get todaySteps async {
-    final int todaySteps = await _channel.invokeMethod('getTodaySteps');
-    return todaySteps;
-  }
-
   static Future<int> getStepsForDay({@required String dateStr}) async {
     final int steps = await _channel.invokeMethod('fetchSteps', dateStr);
     return steps;

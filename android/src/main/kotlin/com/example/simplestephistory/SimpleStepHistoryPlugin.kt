@@ -49,8 +49,6 @@ class SimpleStepHistoryPlugin(private val activity: Activity): MethodCallHandler
   override fun onMethodCall(call: MethodCall, result: Result) {
 
     when(call.method) {
-      "getTodaySteps" -> result.success(999)
-
       "fetchSteps" -> {
         val dateStr: String = call.arguments as String
         getStepsTotal(result, dateStr) 

@@ -22,10 +22,7 @@ public class SwiftSimpleStepHistoryPlugin: NSObject, FlutterPlugin {
             _result = nil
         }
         
-        if (call.method == "getTodaySteps") {
-            _result = result
-            return fetchTodaySteps()
-        } else if (call.method == "fetchSteps") {
+        if (call.method == "fetchSteps") {
             _result = result
             let fmt = DateFormatter()
             fmt.dateFormat = "yyyy-MM-dd"
@@ -61,16 +58,6 @@ public class SwiftSimpleStepHistoryPlugin: NSObject, FlutterPlugin {
                                     self?.sendRes(count: count.intValue)
                                     
         }
-    }
-    
-    private func fetchTodaySteps() {
-        pedometer
-            .queryPedometerData(from: Date().startOfDay,
-                                to: Date().endOfDay,
-                                withHandler: { [weak self] (data, error) in
-                                    let count = data?.numberOfSteps ?? NSNumber(value: -1)
-                                    self?.sendRes(count: count.intValue)
-            })
     }
     
     private func sendRes(count: Int) {

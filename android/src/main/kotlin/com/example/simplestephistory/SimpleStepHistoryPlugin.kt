@@ -138,8 +138,6 @@ class SimpleStepHistoryPlugin(private val activity: Activity): MethodCallHandler
       val startCal = GregorianCalendar()
 	    val sdf = SimpleDateFormat("yyyy-MM-dd")
 	    startCal.setTime(sdf.parse(dateStr))// all done
-      Log.d(TAG, "buckets count : ${startCal.toString()}")
-      
     
       val endCal = GregorianCalendar(
                     startCal.get(Calendar.YEAR),

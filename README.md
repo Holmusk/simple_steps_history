@@ -1,14 +1,18 @@
 # simple_step_history
 
-A new flutter plugin project.
 
-## Getting Started
+## A simple steps history fetcher.
+- iOS with CMPedometer API
+- Android with GoogleFit API
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.io/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+## Functionality: 
+- Request Authorization
+'SimpleStepHistory.requestAuthorization()'
+- Check is steps available or not
+'SimpleStepHistory.isStepsAvailable'
+- Fetch steps history by date
+'SimpleStepHistory.getStepsForDay(dateStr: 'yyyy-MM-dd')'
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+## Note
+- Make sure to add privacy request string in iOS info.plist
+- Make sure to add GoogleFit API in your google developer console

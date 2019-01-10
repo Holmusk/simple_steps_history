@@ -43,11 +43,12 @@ public class SwiftSimpleStepHistoryPlugin: NSObject, FlutterPlugin {
             }
         } else if(call.method == "requestStepsAuthorization") {
             _result = result
-            fetchTodaySteps()
+            fetchSteps(for: Date())
         } else {
             result(FlutterMethodNotImplemented)
         }
     }
+    
     
     private func fetchSteps(for date: Date) {
         pedometer

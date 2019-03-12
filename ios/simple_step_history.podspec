@@ -3,10 +3,10 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'simple_step_history'
-  s.version          = '0.0.1'
-  s.summary          = 'A new flutter plugin project.'
+  s.version          = '0.0.4'
+  s.summary          = 'Simple steps history.'
   s.description      = <<-DESC
-A new flutter plugin project.
+A simple steps history
                        DESC
   s.homepage         = 'http://example.com'
   s.license          = { :file => '../LICENSE' }
@@ -16,6 +16,6 @@ A new flutter plugin project.
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '10.0'
 end
 

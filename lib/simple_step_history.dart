@@ -13,6 +13,7 @@ class SimpleStepHistory {
 
   static Future<int> getStepsForDay({@required String dateStr}) async {
     final int steps = await _channel.invokeMethod('fetchSteps', dateStr);
+    print('RESULT : $steps');
     return steps;
   }
 

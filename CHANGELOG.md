@@ -1,3 +1,6 @@
+## 0.0.7
+- Fix uithread crash in android
+
 ## 0.0.3
 - Remove android cal log
 

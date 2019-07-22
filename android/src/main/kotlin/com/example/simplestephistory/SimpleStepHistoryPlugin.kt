@@ -3,6 +3,8 @@ package com.example.simplestephistory
 import android.app.Activity
 import android.content.Intent
 import android.util.Log
+import android.os.Looper
+import android.os.Handler
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.fitness.Fitness
 import com.google.android.gms.fitness.FitnessOptions
@@ -22,6 +24,10 @@ import java.text.SimpleDateFormat
 import java.text.DateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
+
+
+
+
 
 class SimpleStepHistoryPlugin(private val activity: Activity): MethodCallHandler, PluginRegistry.ActivityResultListener {
 
@@ -166,20 +172,31 @@ class SimpleStepHistoryPlugin(private val activity: Activity): MethodCallHandler
           Log.d(TAG, "buckets count : ${readDataResult.buckets.size}")
 
           if (!readDataResult.buckets.isEmpty()) {
+            
             val dp = readDataResult.buckets[0].dataSets[0].dataPoints[0]
             val count = dp.getValue(aggregatedDataType.fields[0])
-
-            Log.d(TAG, "returning $count steps for $dayString")
             
-            result.success(count.asInt())
+
+            Handler(Looper.getMainLooper()).post({
+              result.success(count.asInt())
+            })
+            // result.success(count.asInt())
+            // 
             
           } else {
-            result.success(-2)
+             Log.d(TAG, "bucket is empty return -2")
+            Handler(Looper.getMainLooper()).post({
+              result.success(-2)
+            })
+            
           }
           
         } catch(e: Throwable) {
           Log.d(TAG, "${e.toString()}")
-          result.success(-1)
+          
+          Handler(Looper.getMainLooper()).post({
+              result.success(-1)
+            })
         }
 
       }.start()
